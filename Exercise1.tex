@@ -1,0 +1,1214 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={INFO 523 Exercise},
+  pdfauthor={KunaA Arekar/Naitik Shah},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{INFO 523 Exercise}
+\author{KunaA Arekar/Naitik Shah}
+\date{2024-09-04}
+
+\begin{document}
+\maketitle
+
+\section{Week 2: Getting to Know Your Data R
+Exercise}\label{week-2-getting-to-know-your-data-r-exercise}
+
+\textbf{Goal}: Practice basic R commands/methods for descriptive data
+analysis.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Load Data}\label{load-data}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Load data}
+\FunctionTok{data}\NormalTok{(algae, }\AttributeTok{package=}\StringTok{"DMwR2"}\NormalTok{)}
+\NormalTok{algae}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##     season   size  speed  mxPH  mnO2      Cl    NO3       NH4    oPO4     PO4
+## 1   winter  small medium 8.000  9.80  60.800  6.238   578.000 105.000 170.000
+## 2   spring  small medium 8.350  8.00  57.750  1.288   370.000 428.750 558.750
+## 3   autumn  small medium 8.100 11.40  40.020  5.330   346.667 125.667 187.057
+## 4   spring  small medium 8.070  4.80  77.364  2.302    98.182  61.182 138.700
+## 5   autumn  small medium 8.060  9.00  55.350 10.416   233.700  58.222  97.580
+## 6   winter  small   high 8.250 13.10  65.750  9.248   430.000  18.250  56.667
+## 7   summer  small   high 8.150 10.30  73.250  1.535   110.000  61.250 111.750
+## 8   autumn  small   high 8.050 10.60  59.067  4.990   205.667  44.667  77.434
+## 9   winter  small medium 8.700  3.40  21.950  0.886   102.750  36.300  71.000
+## 10  winter  small   high 7.930  9.90   8.000  1.390     5.800  27.250  46.600
+## 11  spring  small   high 7.700 10.20   8.000  1.527    21.571  12.750  20.750
+## 12  summer  small   high 7.450 11.70   8.690  1.588    18.429  10.667  19.000
+## 13  winter  small   high 7.740  9.60   5.000  1.223    27.286  12.000  17.000
+## 14  summer  small   high 7.720 11.80   6.300  1.470     8.000  16.000  15.000
+## 15  winter  small   high 7.900  9.60   3.000  1.448    46.200  13.000  61.600
+## 16  autumn  small   high 7.550 11.50   4.700  1.320    14.750   4.250  98.250
+## 17  winter  small   high 7.780 12.00   7.000  1.420    34.333  18.667  50.000
+## 18  spring  small   high 7.610  9.80   7.000  1.443    31.333  20.000  57.833
+## 19  summer  small   high 7.350 10.40   7.000  1.718    49.000  41.500  61.500
+## 20  spring  small medium 7.790  3.20  64.000  2.822  8777.600 564.600 771.600
+## 21  winter  small medium 7.830 10.70  88.000  4.825  1729.000 467.500 586.000
+## 22  spring  small   high 7.200  9.20   0.800  0.642    81.000  15.600  18.000
+## 23  autumn  small   high 7.750 10.30  32.920  2.942    42.000  16.000  40.000
+## 24  winter  small   high 7.620  8.50  11.867  1.715   208.333   3.000  27.500
+## 25  spring  small   high 7.840  9.40  10.975  1.510    12.500   3.000  11.500
+## 26  summer  small   high 7.770 10.70  12.536  3.976    58.500   9.000  44.136
+## 27  winter  small   high 7.090  8.40  10.500  1.572    28.000   4.000  13.600
+## 28  autumn  small   high 6.800 11.10   9.000  0.630    20.000   4.000      NA
+## 29  winter  small   high 8.000  9.80  16.000  0.730    20.000  26.000  45.000
+## 30  spring  small   high 7.200 11.30   9.000  0.230   120.000  12.000  19.000
+## 31  autumn  small   high 7.400 12.50  13.000  3.330    60.000  72.000 142.000
+## 32  winter  small   high 8.100 10.30  26.000  3.780    60.000 246.000 304.000
+## 33  summer  small   high 7.800 11.30  20.083  3.020    49.500  53.000 130.750
+## 34  autumn  small medium 8.400  9.90  34.500  2.818  3515.000  20.000  47.000
+## 35  winter  small medium 8.270  7.80  29.200  0.050  6400.000   7.400  23.000
+## 36  summer  small medium 8.660  8.40  30.523  3.444  1911.000  58.875  84.460
+## 37  winter  small   high 8.300 10.90   1.170  0.735    13.500   1.625   3.000
+## 38  spring  small   high 8.000    NA   1.450  0.810    10.000   2.500   3.000
+## 39  winter  small medium 8.300  8.90  20.625  3.414   228.750 196.620 253.250
+## 40  spring  small medium 8.100 10.50  22.286  4.071   178.570 182.420 255.280
+## 41  winter  small medium 8.000  5.50  77.000  6.096   122.850 143.710 296.000
+## 42  summer  small medium 8.150  7.10  54.190  3.829   647.570  59.429 175.046
+## 43  winter  small   high 8.300  7.70  50.000  8.543    76.000 264.900 344.600
+## 44  spring  small   high 8.300  8.80  54.143  7.830    51.429 276.850 326.857
+## 45  winter  small   high 8.400 13.40  69.750  4.555    37.500  10.000  40.667
+## 46  spring  small   high 8.300 12.50  87.000  4.870    22.500  27.000  43.500
+## 47  autumn  small   high 8.000 12.10  66.300  4.535    39.000  16.000  39.000
+## 48  winter  small    low    NA 12.60   9.000  0.230    10.000   5.000   6.000
+## 49  spring  small medium 7.600  9.60  15.000  3.020    40.000  27.000 121.000
+## 50  autumn  small medium 7.290 11.21  17.750  3.070    35.000  13.000  20.812
+## 51  winter  small medium 7.600 10.20  32.300  4.508   192.500  12.750  49.333
+## 52  summer  small medium 8.000  7.90  27.233  1.651    28.333   7.300  22.900
+## 53  winter  small   high 7.900 11.00   6.167  1.172    18.333   7.750  11.800
+## 54  spring  small   high 7.900  9.00   5.273  0.910    33.636   9.000  11.818
+## 55  winter  small   high 6.600 10.80      NA  3.245    10.000   1.000   6.500
+## 56  spring  small medium 5.600 11.80      NA  2.220     5.000   1.000   1.000
+## 57  autumn  small medium 5.700 10.80      NA  2.550    10.000   1.000   4.000
+## 58  spring  small   high 6.600  9.50      NA  1.320    20.000   1.000   6.000
+## 59  summer  small   high 6.600 10.80      NA  2.640    10.000   2.000  11.000
+## 60  autumn  small medium 6.600 11.30      NA  4.170    10.000   1.000   6.000
+## 61  spring  small medium 6.500 10.40      NA  5.970    10.000   2.000  14.000
+## 62  summer  small medium 6.400    NA      NA     NA        NA      NA  14.000
+## 63  autumn  small   high 7.830 11.70   4.083  1.328    18.000   3.333   6.667
+## 64  spring  small   high 7.570 10.80   4.575  1.203    27.500   2.000   6.750
+## 65  summer  small   high 7.190 11.70   4.326  1.474   160.000   2.500   7.200
+## 66  winter  small   high 7.440 10.10   2.933  0.770    15.000   1.333   6.000
+## 67  spring  small   high 7.140  9.80   3.275  0.923    15.000   1.250  10.750
+## 68  summer  small   high 7.000 12.10   3.136  1.208    16.200   1.800   2.500
+## 69  winter  small medium 7.500  1.50  32.400  0.921  1386.250 220.750 351.600
+## 70  spring  small medium 7.500  1.80  29.775  1.051  2082.850 209.857 313.600
+## 71  summer  small medium 7.800  7.10  32.540  1.720  2167.370 151.125 279.066
+## 72  autumn medium medium 8.500  8.10  38.125  3.850   225.000  45.000 152.333
+## 73  summer medium medium 7.925 10.20  34.037  9.080   109.000  55.000  58.623
+## 74  winter medium medium 8.100  8.10 136.000  3.773   245.000 136.750 249.250
+## 75  spring medium medium 8.200  6.80 129.375  3.316   271.250 100.000 233.500
+## 76  spring medium   high 9.100  9.40  35.750  5.164    32.500  85.500 215.500
+## 77  autumn medium medium 8.100  9.80  29.500  1.287   224.286  25.167 102.333
+## 78  winter medium medium 8.000  5.90  27.400  0.735   133.636  36.000 105.727
+## 79  spring medium medium 8.000  3.30  26.760  0.658   165.000  37.375 111.375
+## 80  winter medium   high 7.500  9.20  11.000  3.310   101.000  26.600 108.000
+## 81  spring medium   high 7.400  9.80  11.000  3.235   255.000  38.750  56.667
+## 82  autumn medium   high 7.300 11.70  10.400  4.930   130.000  10.800  60.000
+## 83  winter medium   high 7.400  8.90  13.500  5.442   123.333  27.667 104.000
+## 84  summer medium   high 7.400 11.17  12.146  6.188    89.600  32.000  69.930
+## 85  autumn medium medium 7.500 10.80  31.000  4.408   737.500 111.250 214.000
+## 86  winter medium medium 7.600  6.00  53.000  3.734   914.000 137.600 254.600
+## 87  summer medium medium 7.400 10.77  36.248  3.730   429.200  57.600 169.001
+## 88  winter medium medium 7.800  3.60  48.667  4.030  5738.330 412.333 607.167
+## 89  summer medium medium 7.600  9.70  53.102  7.160  4073.330 282.167 624.733
+## 90  winter medium medium 8.500  8.60 125.600  3.778   124.167 197.833 303.333
+## 91  spring medium medium 8.700  9.40 173.750  3.318   101.250 267.750 391.750
+## 92  summer medium medium 8.100 10.70  94.405  4.698   153.000 191.750 265.250
+## 93  winter medium   high 8.800  8.50  53.333  5.132    96.667 120.500 232.833
+## 94  spring medium   high 7.800 10.50  70.000  2.443    98.333 144.667 244.000
+## 95  summer medium   high 7.900 11.80  63.510  4.940   137.000 159.500 218.000
+## 96  autumn medium    low 8.500 10.50  56.717  0.330   215.714  23.000 138.500
+## 97  winter medium    low 9.100  5.40  61.050  0.308   105.556 104.222 239.000
+## 98  spring medium    low 8.900  4.50  57.750  0.267   155.000  97.333 235.667
+## 99  winter medium   high 7.900  6.30 101.875  3.978   153.750  51.750 205.875
+## 100 summer medium   high 7.800  8.20  85.982  6.200   421.667  31.333 211.667
+## 101 winter medium medium 7.700  7.10  63.625  3.140   122.500  28.625 186.500
+## 102 spring medium medium 7.800  6.50  82.111  2.603   215.556  12.889 154.125
+## 103 winter medium    low 7.700  5.30  65.333  2.899   371.111  51.111 183.667
+## 104 summer medium    low 7.500  8.80  58.331  8.688   758.750 104.500 292.625
+## 105 autumn medium    low 7.600 10.00  49.625  5.456   308.750  38.625 285.714
+## 106 winter medium    low 8.700  7.40  47.778  2.316    38.111  24.667 201.778
+## 107 summer medium    low 7.700 11.10  47.229  8.759   239.000  54.000 275.143
+## 108 autumn medium   high 8.300 11.10  41.500  4.665   931.833  39.000 124.200
+## 109 winter medium   high 8.430  6.00  40.167  2.670   723.667  60.833 141.833
+## 110 summer medium   high 8.160 11.10  32.056  5.694   461.875  71.000 132.546
+## 111 winter medium   high 8.700  9.80   5.889  1.534    51.111   9.667  17.333
+## 112 spring medium   high 8.200 11.30   7.250  1.875    25.000   6.500  26.000
+## 113 summer medium   high 8.500 11.80   7.838  1.732   206.538   8.692  16.662
+## 114 spring medium medium 7.800  6.00  53.425  0.381   118.571  37.857 102.571
+## 115 summer medium medium 8.000  9.70  57.848  0.461   217.750  37.000  86.997
+## 116 winter medium   high 9.700 10.80   0.222  0.406    10.000  22.444  10.111
+## 117 summer medium   high 8.600 11.62   1.549  0.445    25.833  16.833  18.293
+## 118 autumn medium medium 8.300 11.60   5.830  0.701    12.727   3.545  13.200
+## 119 spring medium    low 8.400  5.30  74.667  3.900   131.667 261.600 432.909
+## 120 summer medium    low 8.200  6.60 131.400  4.188    92.000 238.200 320.400
+## 121 winter medium medium 8.200  9.40  45.273  7.195   345.455 144.000 287.000
+## 122 spring medium medium 8.100  7.10  42.636  5.078    56.364 166.727 262.727
+## 123 summer medium medium 8.100  9.00  48.429  6.640   128.571 181.000 222.286
+## 124 winter medium   high 7.400 10.70  11.818  2.163   170.909  36.909 122.000
+## 125 spring medium   high 8.300  9.70  10.556  1.921    65.556  61.556 127.222
+## 126 summer medium   high 8.600 10.70  12.000  2.231    43.750  62.625  89.625
+## 127 winter medium medium 9.100 11.60  31.091  5.099   246.364  55.000 284.000
+## 128 spring medium medium 9.000  6.90  28.333  2.954    76.667 102.333 277.333
+## 129 summer medium medium 8.300 10.00  30.125  3.726   102.500  75.875 177.625
+## 130 winter medium   high 8.500 10.10  10.936  1.335   236.000  34.636  72.900
+## 131 spring medium   high 8.300  7.70  10.078  1.212   103.333  48.667  82.444
+## 132 summer medium   high 7.300 10.50  11.088  1.374    92.375  48.625  66.750
+## 133 winter medium medium 7.900  9.80 194.750  6.513  3466.660  23.000 173.750
+## 134 spring medium medium 7.900  8.30 391.500  6.045   380.000 173.000 317.000
+## 135 autumn medium medium 8.000 11.90 130.670  6.540   196.000  75.000  84.000
+## 136 spring medium medium 8.000  9.20  39.000  4.860   120.000 187.000 213.000
+## 137 autumn medium medium 8.100 11.70  35.660  5.130    46.500  49.000  88.500
+## 138 winter medium    low 8.430  9.90  37.600  0.826   124.000  32.500 115.000
+## 139 summer medium    low 8.100  6.20  39.000  0.673   112.857  60.000  98.143
+## 140 winter medium medium 7.900 11.20  49.900  9.773   505.000  67.500 143.750
+## 141 summer medium medium 8.100  6.20  51.113  5.099   175.000 132.500 197.143
+## 142 spring medium   high 7.800  9.50   8.300  1.670    34.000  16.800  35.200
+## 143 autumn medium   high 7.900 10.50  10.207  2.304   132.250  10.583  23.485
+## 144 winter medium    low 8.000  4.50  79.077  8.984   920.000  70.000 200.231
+## 145 spring medium    low 7.600  6.30  81.333  9.715   196.667  77.333 147.833
+## 146 autumn medium    low 7.800  6.50  64.093  7.740  1990.160  47.500 276.000
+## 147 winter medium   high 8.220  8.10  41.250  1.415   172.500  46.667 123.333
+## 148 autumn medium   high 8.300  9.90  40.226  1.587   235.000  33.800  75.207
+## 149 winter medium   high 8.470  9.00  46.167  2.102    84.667  48.000 116.200
+## 150 spring medium   high 8.400  4.90  47.000  0.536    91.833 109.000 188.667
+## 151 autumn medium   high 8.870 11.00  41.163  2.273    54.750  39.000  72.696
+## 152 summer medium   high 7.700  4.40  53.000  2.310    90.000  22.200 116.200
+## 153 autumn medium   high 7.300 11.80  44.205 45.650 24064.000  44.000  34.000
+## 154 spring medium medium 7.900  6.00 127.833  2.680   176.667  27.500  76.333
+## 155 autumn medium medium 7.800 10.53 100.830  5.410   486.500  24.000  58.374
+## 156 spring  large    low 7.800  3.20  94.000  4.908  1131.660 175.667 361.000
+## 157 summer  large    low 7.600  4.90  69.000  3.685  1495.000 234.500 236.000
+## 158 spring  large    low 8.600  3.60  50.000  0.376   134.000  54.100 125.800
+## 159 autumn  large    low 8.400 10.60  19.220  1.655    96.833  20.667  54.916
+## 160 winter  large    low 8.300 11.50  26.000  1.870    62.500  30.750  75.333
+## 161 spring  large    low 9.000  5.80      NA  0.900   142.000 102.000 186.000
+## 162 spring  large    low 9.500  5.70  44.000  0.102   146.667 151.333 252.500
+## 163 summer  large    low 8.800  8.80  43.000  0.130   103.333 180.667 269.667
+## 164 autumn  large    low 8.840 12.90  43.090  0.846    52.200   8.600  46.438
+## 165 winter  large   high 7.300  9.90  16.000  4.820   101.667  14.667  85.000
+## 166 autumn  large   high 7.400 10.68  22.350  5.414   244.600  66.400 171.272
+## 167 spring  large    low 9.100  4.30  82.857  0.860   137.273 102.364 232.900
+## 168 autumn  large    low 8.530 11.10  63.292  1.726   227.600  84.300 146.452
+## 169 winter  large    low 8.560  8.70  43.970  4.053   643.000 221.900 246.667
+## 170 autumn  large    low 8.060  8.30  38.902  3.678   627.273 205.636 219.909
+## 171 winter  large medium 8.240  6.10  95.367  3.561  1168.000 236.400 272.222
+## 172 summer  large medium 7.910  6.20 151.833  3.923  1081.660 346.167 388.167
+## 173 winter  large medium 8.210  9.30 104.818  3.908   124.364  82.222 167.900
+## 174 spring  large medium 8.500  7.30  71.444  2.512    66.667  64.389 137.778
+## 175 spring  large medium 8.600 10.60 208.364  4.459   197.909  87.333 194.100
+## 176 winter  large medium 9.060  6.35 187.183  3.351    54.778 159.167 221.278
+## 177 autumn  large   high 8.700 10.70   4.545  0.941    32.727  16.000  21.300
+## 178 spring  large   high 8.100 10.70   3.500  1.013    12.500  12.750  11.000
+## 179 summer  large   high 8.400 10.29   5.326  0.996    53.846   7.667  14.354
+## 180 spring  large medium 8.600 10.10   2.111  0.663    11.111   3.222   7.000
+## 181 summer  large medium 8.200  9.50   2.200  0.672    10.000   3.800   6.200
+## 182 winter  large medium 8.500 10.50   2.750  0.758    10.500   4.000   7.654
+## 183 summer  large medium 8.300 10.00   3.860  0.866    32.000   6.000  16.000
+## 184 winter  large   high 8.000 10.90   9.055  0.825    40.000  21.083  56.091
+## 185 summer  large   high 8.100 10.20   7.613  0.699    32.500  26.625  52.875
+## 186 winter  large    low 8.700 10.80  39.109  6.225   161.818 104.727 228.364
+## 187 winter  large    low 8.700 11.70  22.455  3.765    88.182  41.300  85.400
+## 188 summer  large    low 8.400  8.20  23.250  2.805    43.750  51.125  87.125
+## 189 autumn  large    low 8.550 11.00  22.320  3.140    82.100  45.900 101.455
+## 190 spring  large medium 8.500  7.60  12.778  1.873    17.778  50.889 127.000
+## 191 autumn  large medium 8.700 11.40  15.541  2.323   103.000  34.500  81.558
+## 192 winter  large medium 8.400 10.50  12.182  1.519    65.455  19.727  50.455
+## 193 spring  large medium 8.200  8.20   7.333  1.003    37.778  19.111 120.889
+## 194 autumn  large medium 8.580 11.10  23.825  3.617    72.600  51.111  91.111
+## 195 summer  large medium 8.500  7.90  12.444  2.586    96.667  19.111  61.444
+## 196 autumn  large medium 8.400  8.40  17.375  3.833    83.750  53.625  79.750
+## 197 spring  large medium 8.300 10.60  14.320  3.200   125.333  35.333  75.904
+## 198 autumn  large medium 8.200  7.00 139.989  2.978    60.110  78.333 140.220
+## 199 winter  large medium 8.000  7.60      NA     NA        NA      NA      NA
+## 200 summer  large medium 8.500  6.70  82.852  2.800    27.069  64.000 140.517
+##        Chla   a1   a2   a3   a4   a5   a6   a7
+## 1    50.000  0.0  0.0  0.0  0.0 34.2  8.3  0.0
+## 2     1.300  1.4  7.6  4.8  1.9  6.7  0.0  2.1
+## 3    15.600  3.3 53.6  1.9  0.0  0.0  0.0  9.7
+## 4     1.400  3.1 41.0 18.9  0.0  1.4  0.0  1.4
+## 5    10.500  9.2  2.9  7.5  0.0  7.5  4.1  1.0
+## 6    28.400 15.1 14.6  1.4  0.0 22.5 12.6  2.9
+## 7     3.200  2.4  1.2  3.2  3.9  5.8  6.8  0.0
+## 8     6.900 18.2  1.6  0.0  0.0  5.5  8.7  0.0
+## 9     5.544 25.4  5.4  2.5  0.0  0.0  0.0  0.0
+## 10    0.800 17.0  0.0  0.0  2.9  0.0  0.0  1.7
+## 11    0.800 16.6  0.0  0.0  0.0  1.2  0.0  6.0
+## 12    0.600 32.1  0.0  0.0  0.0  0.0  0.0  1.5
+## 13   41.000 43.5  0.0  2.1  0.0  1.2  0.0  2.1
+## 14    0.500 31.1  1.0  3.4  0.0  1.9  0.0  4.1
+## 15    0.300 52.2  5.0  7.8  0.0  4.0  0.0  0.0
+## 16    1.100 69.9  0.0  1.7  0.0  0.0  0.0  0.0
+## 17    1.100 46.2  0.0  0.0  1.2  0.0  0.0  0.0
+## 18    0.400 31.8  0.0  3.1  4.8  7.7  1.4  7.2
+## 19    0.800 50.6  0.0  9.9  4.3  3.6  8.2  2.2
+## 20    4.500  0.0  0.0  0.0 44.6  0.0  0.0  1.4
+## 21   16.000  0.0  0.0  0.0  6.8  6.1  0.0  0.0
+## 22    0.500 15.5  0.0  0.0  2.3  0.0  0.0  0.0
+## 23    7.600 23.2  0.0  0.0  0.0 27.6 11.1  0.0
+## 24    1.700 74.2  0.0  0.0  3.7  0.0  0.0  0.0
+## 25    1.500 13.0  8.6  1.2  3.5  1.2  1.6  1.9
+## 26    3.000  4.1  0.0  0.0  0.0  9.2 10.1  0.0
+## 27    0.500 29.7  0.0  0.0  4.9  0.0  0.0  0.0
+## 28    2.700 30.3  1.9  0.0  0.0  2.1  1.4  2.1
+## 29    0.800 17.1  0.0 19.6  0.0  0.0  0.0  2.5
+## 30    0.500 33.9  1.0 14.6  0.0  0.0  0.0  0.0
+## 31    4.900  3.4 16.0  1.2  0.0 15.3 15.8  0.0
+## 32    2.800  6.9 17.1 20.2  0.0  4.0  0.0  2.9
+## 33    5.800  0.0  8.0  1.9  0.0 11.2 42.7  1.2
+## 34    2.300 13.6  9.1  0.0  0.0  1.4  0.0  0.0
+## 35    0.900  5.3 40.7  3.3  0.0  0.0  0.0  1.9
+## 36    3.600 18.3 12.4  1.0  0.0  0.0  0.0  1.0
+## 37    0.200 66.0  0.0  0.0  0.0  0.0  0.0  0.0
+## 38    0.300 75.8  0.0  0.0  0.0  0.0  0.0  0.0
+## 39   12.320  2.0 38.5  4.1  2.2  0.0  0.0 10.2
+## 40    8.957  2.2  2.7  1.0  3.7  2.7  0.0  0.0
+## 41    3.700  0.0  5.9 10.6  1.7  0.0  0.0  7.1
+## 42   13.200  0.0  0.0  0.0  5.7 11.3 17.0  1.6
+## 43   22.500  0.0 40.9  7.5  0.0  2.4  1.5  0.0
+## 44   11.840  4.1  3.1  0.0  0.0 19.7 17.0  0.0
+## 45    3.900 51.8  4.1  0.0  0.0  3.1  5.5  0.0
+## 46    3.300 29.5  1.0  2.7  3.2  2.9  9.6  0.0
+## 47    0.800 54.4  3.4  1.2  0.0 18.7  2.0  0.0
+## 48    1.100 35.5  0.0  0.0  0.0  0.0  0.0  0.0
+## 49    2.800 89.8  0.0  0.0  0.0  0.0  0.0  0.0
+## 50   12.100 24.8  7.4  0.0  2.5 10.6 17.1  3.2
+## 51    7.900  0.0  0.0  0.0  4.6  1.2  0.0  3.9
+## 52    4.500 39.1  0.0  1.2  2.2  5.4  1.5  3.2
+## 53    0.500 81.9  0.0  0.0  0.0  0.0  0.0  0.0
+## 54    0.800 54.0  0.0  0.0  2.4  0.0  0.0  0.0
+## 55       NA 24.3  0.0  0.0  0.0  0.0  0.0  0.0
+## 56       NA 82.7  0.0  0.0  0.0  0.0  0.0  0.0
+## 57       NA 16.8  4.6  3.9 11.5  0.0  0.0  0.0
+## 58       NA 46.8  0.0  0.0 28.8  0.0  0.0  0.0
+## 59       NA 46.9  0.0  0.0 13.4  0.0  0.0  0.0
+## 60       NA 47.1  0.0  0.0  0.0  0.0  1.2  0.0
+## 61       NA 66.9  0.0  0.0  0.0  0.0  0.0  0.0
+## 62       NA 19.4  0.0  0.0  2.0  0.0  3.9  1.7
+## 63       NA 14.4  0.0  0.0  0.0  0.0  0.0  0.0
+## 64    1.000 20.3  4.3  5.5  0.0  0.0  0.0  1.4
+## 65    0.300 15.8  1.7  7.8  0.0  0.0  2.4  1.4
+## 66    0.600 55.5  0.0  1.7  1.4  0.0  0.0  0.0
+## 67    2.500 10.3  0.0 42.8  2.2  0.0  0.0  0.0
+## 68    0.500 64.2  0.0  3.0  0.0  0.0  0.0  0.0
+## 69   10.000  0.0  0.0  1.5  7.6  0.0  0.0  6.1
+## 70    1.000  1.9  4.9  2.6  3.0  0.0  0.0  1.9
+## 71   13.100 25.5  3.9  1.0 11.0  0.0  0.0 12.5
+## 72    5.200 11.3  1.7  2.0  2.2 13.3 10.6  0.0
+## 73   11.600  4.4  4.0  3.3  0.0 11.7 21.4  1.2
+## 74   20.870  1.9  5.8 24.8  4.6  9.5  5.1  1.2
+## 75   13.000  1.6  8.0 17.6  3.7 11.5  7.0  0.0
+## 76   18.370  2.2  9.6  5.0  1.0  8.6  7.9  2.2
+## 77    3.600 64.9  1.0  0.0  1.0  2.9  1.4  1.0
+## 78    3.000 15.1  7.3 23.2  3.4  4.1  0.0  0.0
+## 79    3.000 14.4  0.0 11.8 11.3  5.5  0.0  0.0
+## 80    1.300  6.7  0.0  5.4  3.4  4.9  6.9 10.8
+## 81    2.000 10.8  0.0  0.0  4.6  6.5  2.2  1.4
+## 82    4.300  1.2  0.0  1.7  0.0  7.5 17.7 14.4
+## 83   21.000 12.6  4.3 21.9  1.0  2.4  3.3 22.1
+## 84    3.100 14.7  4.1  1.0  0.0  7.7  8.5 31.2
+## 85    2.900  3.3  0.0  0.0  5.0  1.9  6.2 25.6
+## 86    4.300  0.0  0.0  0.0  4.6  9.0 13.1 30.1
+## 87    3.200  2.8  0.0  0.0  2.6  5.2 13.2 16.7
+## 88    4.300  0.0  0.0  2.6  2.4  5.0  0.0  2.4
+## 89    6.800  0.0  0.0  0.0  1.0 35.6  9.9  0.0
+## 90   40.000  0.0 15.2  8.8  0.0  8.6  5.1  2.7
+## 91    3.500  0.0  5.5  3.3  0.0 20.8 12.4  0.0
+## 92    7.300  0.0  2.1  1.6  0.0 20.8 32.9  0.0
+## 93   31.000  1.2  5.6  6.3  1.7  1.2  0.0  1.0
+## 94    9.000  0.0  3.1  3.5  1.6  8.2  9.9  0.0
+## 95    6.500  0.0  5.2  0.0  0.0 28.8 20.4  1.0
+## 96   20.829  5.7  0.0  0.0  4.4 12.4  8.3  7.8
+## 97   72.478  3.6 31.9  2.4  0.0  0.0  0.0  2.2
+## 98   98.817  1.2 16.2  0.0  0.0  0.0  0.0  1.0
+## 99    2.000  4.0  2.1 35.1  6.8  7.3  0.0  0.0
+## 100  21.900  5.9  3.4  1.0  1.2 17.8 49.4  1.0
+## 101  30.000 16.5  2.1 19.5  3.5  5.3  1.2  3.2
+## 102   5.200  7.0  0.0 13.5  4.3  8.7  0.0  4.3
+## 103  17.200 58.7  0.0 11.5  6.6  0.0  0.0  0.0
+## 104   3.000  8.7  0.0  3.0  5.3  9.4 33.2  0.0
+## 105  75.000 17.0 21.6  1.6  1.4 10.2  3.6  1.1
+## 106   3.000 12.3  5.4  1.9  0.0  1.4  0.0  1.9
+## 107  65.700  8.8 19.6  4.7  0.0  0.0  0.0  2.7
+## 108  13.100 23.7 13.7  0.0  1.7  6.4  2.6  0.0
+## 109  25.000  0.0  6.4  7.3 12.7  0.0  0.0  4.2
+## 110  15.000  3.6 38.8  0.0  0.0  1.2  0.0  2.4
+## 111   1.000 64.3  1.5  8.0  0.0  0.0  0.0  0.0
+## 112   0.300 46.6  0.0  2.5  0.0  0.0  0.0  0.0
+## 113   2.100 24.0  0.0  1.0  0.0  0.0  0.0  0.0
+## 114   1.200  3.7  1.4  1.1  2.1  3.2  6.4  0.0
+## 115   3.000 18.1 14.5  0.0  0.0 11.5 22.3  0.0
+## 116      NA 41.0  1.5  0.0  0.0  0.0  0.0  0.0
+## 117   1.400 43.7  0.0  1.2  0.0  0.0  4.7  0.0
+## 118   3.200 86.6  0.0  0.0  0.0  0.0  0.0  0.0
+## 119  24.917  1.9 12.7 25.9  0.0  0.0  0.0  6.8
+## 120   6.800  1.2  1.9 22.9  0.0  8.1  0.0  0.0
+## 121   9.882  1.4 18.4  0.0  0.0 20.0 29.5  0.0
+## 122  17.200  1.6  8.9  6.6  0.0  9.2  1.6  1.4
+## 123   6.429  3.3 11.6  7.0  0.0 17.9  4.7  0.0
+## 124   5.555 14.6  0.0  0.0  1.9 22.1 12.7  1.4
+## 125   5.233  1.7  0.0 10.3  2.6  8.9  6.7  0.0
+## 126   2.150  3.3  0.0  0.0  1.9 34.3  7.1  6.0
+## 127  88.255  0.0 36.6  4.1  0.0  1.2 16.7  6.1
+## 128 110.456  0.0 16.4 10.1  0.0  0.0  0.0  6.6
+## 129  50.225  1.5 32.8  1.0  4.1  0.0 15.8  2.4
+## 130  11.100  4.2  0.0  1.4  1.9 16.2  0.0  1.4
+## 131   2.000  4.1  0.0 25.3  2.1  8.0  0.0 18.6
+## 132   3.300  1.2  0.0  2.3  0.0 44.4  7.5  1.9
+## 133  15.300  0.0  0.0  1.0  0.0  9.0 64.6  0.0
+## 134   5.500  2.4  1.7  4.2  8.3  1.7  0.0  2.4
+## 135   4.500  7.8  8.7  2.1  0.0 14.9 22.9  2.4
+## 136   2.000 10.3 26.5  6.1  0.0  5.6  1.5  2.2
+## 137   2.500  1.5 72.6  0.0  0.0  3.4  6.8  3.4
+## 138  11.700  9.2  2.9  2.0  1.3  2.5  0.0  0.0
+## 139   2.000 28.1  0.0  0.0  4.0  1.2  0.0  0.0
+## 140   5.450  2.1  2.6  0.0  0.0 15.0 15.7  0.0
+## 141   6.400  1.4 15.7  1.4  0.0  3.5  0.0  1.6
+## 142   1.000 19.0  0.0 22.0  5.0  1.1  5.4  0.0
+## 143   2.000 42.5  0.0  2.2  1.0  0.0  0.0  0.0
+## 144  19.400  2.5  1.4  1.4  6.2  4.1  1.8  3.9
+## 145   3.000  4.4 11.2  6.8  0.0  1.0  0.0 31.6
+## 146   8.100  6.5  4.1  0.0  7.7  9.9 18.2  7.0
+## 147  30.400 39.7 12.7  0.0  1.1  2.7  0.0  1.6
+## 148  23.800 32.8 28.0  2.0  3.5  1.0  0.0  1.5
+## 149   7.300 12.2 16.0  1.0  1.4  1.9  1.2  0.0
+## 150  32.000  1.9 25.4 21.7  0.0  0.0  1.0  0.0
+## 151  22.700  0.0  5.6  1.2  0.0  8.0  2.7  0.0
+## 152  16.000  0.0  0.0  0.0  1.2  5.7 32.1  0.0
+## 153  53.100  2.2  0.0  0.0  1.2  5.9 77.6  0.0
+## 154   2.100  3.4 21.5 14.0  1.8  3.9  0.0  0.0
+## 155  27.500  2.8  1.9  0.0  1.2 19.0  4.5  0.0
+## 156  28.567 24.8 10.4  0.0  6.9  0.0  0.0  2.7
+## 157  22.500 32.5 12.0  0.0  5.0  0.0  0.0  1.9
+## 158  26.800  0.0 28.0  0.0  0.0  0.0  0.0 15.1
+## 159  20.600  0.0 11.3  1.8  0.0  2.5  0.0  1.4
+## 160  34.750  0.0 20.1  0.0  0.0  0.0  0.0  0.0
+## 161  68.050  1.7 20.6  1.5  2.2  0.0  0.0  0.0
+## 162  93.683 12.3 21.7  3.9  0.0  0.0  0.0  3.9
+## 163  92.667  7.2 28.2  0.0  0.0  0.0  0.0  3.3
+## 164  81.540  3.4 21.5  0.0  0.0  0.0  0.0  2.7
+## 165   2.000  0.0  0.0  0.0  2.4  0.0 17.8  3.6
+## 166   3.800  1.1  0.0  1.4  0.0  6.6 42.1  5.2
+## 167  54.367  0.0  6.0  2.9  0.0  0.0  0.0  2.9
+## 168  21.220  1.4 14.7  2.5  0.0  0.0  0.0  2.0
+## 169  14.700 12.5  2.1  0.0  1.2  6.4  4.5  1.7
+## 170   6.209  0.0  0.0  0.0  0.0  8.6 52.5  0.0
+## 171  20.578  2.5 13.2  0.0  2.0  7.4 17.2  0.0
+## 172   5.083  1.7 12.0  4.9  2.7  0.0  5.9  1.7
+## 173   5.609  1.4  4.6 10.8  2.2  5.5 42.4  0.0
+## 174   9.384  0.0  3.8 16.0  4.0  0.0  0.0  3.3
+## 175  27.618  0.0  1.2  0.0  0.0 11.3 11.5  0.0
+## 176  20.800  0.0 21.1  3.7  0.0  0.0  0.0  1.9
+## 177   1.100 39.7  0.0 12.9  0.0  0.0  0.0  0.0
+## 178   0.600 37.3  9.7 13.6  0.0  2.2  0.0  1.2
+## 179   0.800 52.4  7.5  9.4  0.0  1.4  1.9  0.0
+## 180   1.300 48.3  2.0  0.0  0.0  0.0  0.0  0.0
+## 181   0.800 50.4  3.8  0.0  0.0  0.0  0.0  0.0
+## 182   4.000 56.8  5.0  0.0  0.0  0.0  0.0  0.0
+## 183   2.860 17.3  6.7 19.7  0.0  0.0  0.0  0.0
+## 184      NA 16.8 19.6  4.0  0.0  0.0  0.0  0.0
+## 185   2.000 18.1  1.7  2.0  0.0  1.7  5.9  0.0
+## 186  46.075  1.1  3.9  2.1  0.0  3.9  4.6  2.3
+## 187  17.491  0.0  4.7  0.0  0.0  2.6  2.6  0.0
+## 188  14.775  0.0 12.0  1.7  0.0  2.7  0.0  0.0
+## 189  18.330  1.7  7.0  1.2  0.0  4.8  3.1  0.0
+## 190  24.556  0.0  0.0 10.2  1.7  1.2  0.0  5.5
+## 191   5.620  7.6  0.0  1.2  0.0 15.9 31.8  5.9
+## 192   8.155  2.9  4.6  1.0  0.0  6.6 16.6  0.0
+## 193   5.111  2.2 12.7  8.8  0.0  0.0  0.0  1.2
+## 194  22.900  3.8 22.0  2.9  0.0  3.1  5.5  0.0
+## 195   6.167 18.9 13.2  5.0  0.0  6.1  0.0  0.0
+## 196   2.338 12.7 21.7  5.6  0.0  1.0  0.0  0.0
+## 197   4.667 18.0  7.0  1.7  0.0  4.8 10.3  1.0
+## 198  31.738  0.0 15.9  2.4  1.0  0.0  0.0  0.0
+## 199      NA  0.0 12.5  3.7  1.0  0.0  0.0  4.9
+## 200  18.300  2.4 10.5  9.0  7.8  0.0  0.0  5.8
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Variance}
+\FunctionTok{var}\NormalTok{(algae}\SpecialCharTok{$}\NormalTok{a1)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 455.7532
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Standard Deviation}
+\FunctionTok{sd}\NormalTok{(algae}\SpecialCharTok{$}\NormalTok{a1)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 21.34838
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Range}
+\FunctionTok{range}\NormalTok{(algae}\SpecialCharTok{$}\NormalTok{a1)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1]  0.0 89.8
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{max}\NormalTok{(algae}\SpecialCharTok{$}\NormalTok{a1)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 89.8
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{min}\NormalTok{(algae}\SpecialCharTok{$}\NormalTok{a1)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{IQR}\NormalTok{(algae}\SpecialCharTok{$}\NormalTok{a1)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 23.3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Inter{-}quartile range}
+\FunctionTok{quantile}\NormalTok{(algae}\SpecialCharTok{$}\NormalTok{a1)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    0%   25%   50%   75%  100% 
+##  0.00  1.50  6.95 24.80 89.80
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{quantile}\NormalTok{(algae}\SpecialCharTok{$}\NormalTok{a1, }\AttributeTok{probs=}\FunctionTok{c}\NormalTok{(}\FloatTok{0.2}\NormalTok{, }\FloatTok{0.8}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   20%   80% 
+##  1.20 32.18
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Find NAs}
+\NormalTok{nas }\OtherTok{\textless{}{-}} \FunctionTok{apply}\NormalTok{(algae, }\DecValTok{1}\NormalTok{, }\ControlFlowTok{function}\NormalTok{(r) }\FunctionTok{sum}\NormalTok{(}\FunctionTok{is.na}\NormalTok{(r)))}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"The dataset contains "}\NormalTok{, }\FunctionTok{sum}\NormalTok{(nas), }\StringTok{"NA values. }\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## The dataset contains  33 NA values.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cat}\NormalTok{(}\StringTok{"The dataset contains "}\NormalTok{, }\FunctionTok{sum}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{complete.cases}\NormalTok{(algae)), }\StringTok{"(out of "}\NormalTok{, }\FunctionTok{nrow}\NormalTok{(algae), }\StringTok{") incomplete rows. }\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## The dataset contains  16 (out of  200 ) incomplete rows.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{summary}\NormalTok{(algae)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##     season       size       speed         mxPH            mnO2       
+##  autumn:40   large :45   high  :84   Min.   :5.600   Min.   : 1.500  
+##  spring:53   medium:84   low   :33   1st Qu.:7.700   1st Qu.: 7.725  
+##  summer:45   small :71   medium:83   Median :8.060   Median : 9.800  
+##  winter:62                           Mean   :8.012   Mean   : 9.118  
+##                                      3rd Qu.:8.400   3rd Qu.:10.800  
+##                                      Max.   :9.700   Max.   :13.400  
+##                                      NA's   :1       NA's   :2       
+##        Cl               NO3              NH4                oPO4       
+##  Min.   :  0.222   Min.   : 0.050   Min.   :    5.00   Min.   :  1.00  
+##  1st Qu.: 10.981   1st Qu.: 1.296   1st Qu.:   38.33   1st Qu.: 15.70  
+##  Median : 32.730   Median : 2.675   Median :  103.17   Median : 40.15  
+##  Mean   : 43.636   Mean   : 3.282   Mean   :  501.30   Mean   : 73.59  
+##  3rd Qu.: 57.824   3rd Qu.: 4.446   3rd Qu.:  226.95   3rd Qu.: 99.33  
+##  Max.   :391.500   Max.   :45.650   Max.   :24064.00   Max.   :564.60  
+##  NA's   :10        NA's   :2        NA's   :2          NA's   :2       
+##       PO4              Chla               a1              a2        
+##  Min.   :  1.00   Min.   :  0.200   Min.   : 0.00   Min.   : 0.000  
+##  1st Qu.: 41.38   1st Qu.:  2.000   1st Qu.: 1.50   1st Qu.: 0.000  
+##  Median :103.29   Median :  5.475   Median : 6.95   Median : 3.000  
+##  Mean   :137.88   Mean   : 13.971   Mean   :16.92   Mean   : 7.458  
+##  3rd Qu.:213.75   3rd Qu.: 18.308   3rd Qu.:24.80   3rd Qu.:11.375  
+##  Max.   :771.60   Max.   :110.456   Max.   :89.80   Max.   :72.600  
+##  NA's   :2        NA's   :12                                        
+##        a3               a4               a5               a6        
+##  Min.   : 0.000   Min.   : 0.000   Min.   : 0.000   Min.   : 0.000  
+##  1st Qu.: 0.000   1st Qu.: 0.000   1st Qu.: 0.000   1st Qu.: 0.000  
+##  Median : 1.550   Median : 0.000   Median : 1.900   Median : 0.000  
+##  Mean   : 4.309   Mean   : 1.992   Mean   : 5.064   Mean   : 5.964  
+##  3rd Qu.: 4.925   3rd Qu.: 2.400   3rd Qu.: 7.500   3rd Qu.: 6.925  
+##  Max.   :42.800   Max.   :44.600   Max.   :44.400   Max.   :77.600  
+##                                                                     
+##        a7        
+##  Min.   : 0.000  
+##  1st Qu.: 0.000  
+##  Median : 1.000  
+##  Mean   : 2.495  
+##  3rd Qu.: 2.400  
+##  Max.   :31.600  
+## 
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(Hmisc)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Attaching package: 'Hmisc'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:base':
+## 
+##     format.pval, units
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(dplyr)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Attaching package: 'dplyr'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:Hmisc':
+## 
+##     src, summarize
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(tibble)}
+\FunctionTok{library}\NormalTok{(ggplot2)}
+
+\FunctionTok{data}\NormalTok{(iris)}
+\FunctionTok{describe}\NormalTok{(iris)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## iris 
+## 
+##  5  Variables      150  Observations
+## --------------------------------------------------------------------------------
+## Sepal.Length 
+##        n  missing distinct     Info     Mean      Gmd      .05      .10 
+##      150        0       35    0.998    5.843   0.9462    4.600    4.800 
+##      .25      .50      .75      .90      .95 
+##    5.100    5.800    6.400    6.900    7.255 
+## 
+## lowest : 4.3 4.4 4.5 4.6 4.7, highest: 7.3 7.4 7.6 7.7 7.9
+## --------------------------------------------------------------------------------
+## Sepal.Width 
+##        n  missing distinct     Info     Mean      Gmd      .05      .10 
+##      150        0       23    0.992    3.057   0.4872    2.345    2.500 
+##      .25      .50      .75      .90      .95 
+##    2.800    3.000    3.300    3.610    3.800 
+## 
+## lowest : 2   2.2 2.3 2.4 2.5, highest: 3.9 4   4.1 4.2 4.4
+## --------------------------------------------------------------------------------
+## Petal.Length 
+##        n  missing distinct     Info     Mean      Gmd      .05      .10 
+##      150        0       43    0.998    3.758    1.979     1.30     1.40 
+##      .25      .50      .75      .90      .95 
+##     1.60     4.35     5.10     5.80     6.10 
+## 
+## lowest : 1   1.1 1.2 1.3 1.4, highest: 6.3 6.4 6.6 6.7 6.9
+## --------------------------------------------------------------------------------
+## Petal.Width 
+##        n  missing distinct     Info     Mean      Gmd      .05      .10 
+##      150        0       22     0.99    1.199   0.8676      0.2      0.2 
+##      .25      .50      .75      .90      .95 
+##      0.3      1.3      1.8      2.2      2.3 
+## 
+## lowest : 0.1 0.2 0.3 0.4 0.5, highest: 2.1 2.2 2.3 2.4 2.5
+## --------------------------------------------------------------------------------
+## Species 
+##        n  missing distinct 
+##      150        0        3 
+##                                            
+## Value          setosa versicolor  virginica
+## Frequency          50         50         50
+## Proportion      0.333      0.333      0.333
+## --------------------------------------------------------------------------------
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Summaries on Subset of Data Using dplyr\textquotesingle{}s summarise() and group\_by()}
+
+\NormalTok{alg }\OtherTok{\textless{}{-}}\NormalTok{ tibble}\SpecialCharTok{::}\FunctionTok{as\_tibble}\NormalTok{(algae) }\CommentTok{\# Convert to tibble}
+\FunctionTok{identical}\NormalTok{(alg, algae) }\CommentTok{\# Check if identical}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] TRUE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Summarise with selected columns}
+\NormalTok{algae }\SpecialCharTok{\%\textgreater{}\%}
+   \FunctionTok{select}\NormalTok{(mxPH}\SpecialCharTok{:}\NormalTok{Cl) }\SpecialCharTok{\%\textgreater{}\%}
+   \FunctionTok{summarise\_all}\NormalTok{(}\FunctionTok{list}\NormalTok{(}\AttributeTok{mean =} \SpecialCharTok{\textasciitilde{}}\FunctionTok{mean}\NormalTok{(.x, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{), }
+                      \AttributeTok{median =} \SpecialCharTok{\textasciitilde{}}\FunctionTok{median}\NormalTok{(.x, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 1 x 6
+##   mxPH_mean mnO2_mean Cl_mean mxPH_median mnO2_median Cl_median
+##       <dbl>     <dbl>   <dbl>       <dbl>       <dbl>     <dbl>
+## 1      8.01      9.12    43.6        8.06         9.8      32.7
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Summarise with group\_by}
+\NormalTok{algae }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(season, size) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}
+    \AttributeTok{nObs =} \FunctionTok{n}\NormalTok{(),}
+    \AttributeTok{mA7 =} \FunctionTok{median}\NormalTok{(a7, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{  )}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `summarise()` has grouped output by 'season'. You can override using the
+## `.groups` argument.
+\end{verbatim}
+
+\begin{verbatim}
+## # A tibble: 12 x 4
+## # Groups:   season [4]
+##    season size    nObs   mA7
+##    <fct>  <fct>  <int> <dbl>
+##  1 autumn large     11  0   
+##  2 autumn medium    16  1.05
+##  3 autumn small     13  0   
+##  4 spring large     12  1.95
+##  5 spring medium    21  1   
+##  6 spring small     20  0   
+##  7 summer large     10  0   
+##  8 summer medium    21  1   
+##  9 summer small     14  1.45
+## 10 winter large     12  0   
+## 11 winter medium    26  1.4 
+## 12 winter small     24  0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Summarise variance}
+\NormalTok{algae }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(a1}\SpecialCharTok{:}\NormalTok{a7) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise\_all}\NormalTok{(}\FunctionTok{list}\NormalTok{(}\AttributeTok{var =} \SpecialCharTok{\textasciitilde{}}\FunctionTok{var}\NormalTok{(.x, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 1 x 7
+##   a1_var a2_var a3_var a4_var a5_var a6_var a7_var
+##    <dbl>  <dbl>  <dbl>  <dbl>  <dbl>  <dbl>  <dbl>
+## 1   456.   122.   48.3   19.5   56.1   136.   26.6
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Summarise min and max}
+\NormalTok{algae }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(a1}\SpecialCharTok{:}\NormalTok{a7) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise\_all}\NormalTok{(}\FunctionTok{list}\NormalTok{(}\AttributeTok{min =} \SpecialCharTok{\textasciitilde{}}\FunctionTok{min}\NormalTok{(.x, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{), }
+                     \AttributeTok{max =} \SpecialCharTok{\textasciitilde{}}\FunctionTok{max}\NormalTok{(.x, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 1 x 14
+##   a1_min a2_min a3_min a4_min a5_min a6_min a7_min a1_max a2_max a3_max a4_max
+##    <dbl>  <dbl>  <dbl>  <dbl>  <dbl>  <dbl>  <dbl>  <dbl>  <dbl>  <dbl>  <dbl>
+## 1      0      0      0      0      0      0      0   89.8   72.6   42.8   44.6
+## # i 3 more variables: a5_max <dbl>, a6_max <dbl>, a7_max <dbl>
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Aggregate Data}
+
+\FunctionTok{data}\NormalTok{(iris)}
+
+\CommentTok{\# Summarise variance by species}
+\NormalTok{iris }\SpecialCharTok{\%\textgreater{}\%}
+   \FunctionTok{group\_by}\NormalTok{(Species) }\SpecialCharTok{\%\textgreater{}\%}
+   \FunctionTok{summarise}\NormalTok{(}\AttributeTok{var\_Sepal\_Length =} \FunctionTok{var}\NormalTok{(Sepal.Length, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 3 x 2
+##   Species    var_Sepal_Length
+##   <fct>                 <dbl>
+## 1 setosa                0.124
+## 2 versicolor            0.266
+## 3 virginica             0.404
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Quantiles by species}
+\NormalTok{iris }\SpecialCharTok{\%\textgreater{}\%}
+   \FunctionTok{group\_by}\NormalTok{(Species) }\SpecialCharTok{\%\textgreater{}\%}
+   \FunctionTok{summarise}\NormalTok{(}\AttributeTok{quantiles =} \FunctionTok{list}\NormalTok{(}\FunctionTok{quantile}\NormalTok{(Sepal.Length)))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 3 x 2
+##   Species    quantiles
+##   <fct>      <list>   
+## 1 setosa     <dbl [5]>
+## 2 versicolor <dbl [5]>
+## 3 virginica  <dbl [5]>
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Base R’s \textasciigrave{}aggregate()\textasciigrave{}}
+\FunctionTok{aggregate}\NormalTok{(}\AttributeTok{x =} \FunctionTok{list}\NormalTok{(}\AttributeTok{Sepal.Length =}\NormalTok{ iris}\SpecialCharTok{$}\NormalTok{Sepal.Length), }
+          \AttributeTok{by =} \FunctionTok{list}\NormalTok{(}\AttributeTok{Species =}\NormalTok{ iris}\SpecialCharTok{$}\NormalTok{Species), }
+          \AttributeTok{FUN =}\NormalTok{ quantile)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      Species Sepal.Length.0% Sepal.Length.25% Sepal.Length.50% Sepal.Length.75%
+## 1     setosa           4.300            4.800            5.000            5.200
+## 2 versicolor           4.900            5.600            5.900            6.300
+## 3  virginica           4.900            6.225            6.500            6.900
+##   Sepal.Length.100%
+## 1             5.800
+## 2             7.000
+## 3             7.900
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Aggregate on each of the first four columns in iris}
+\FunctionTok{aggregate}\NormalTok{(}\AttributeTok{x=}\NormalTok{iris[}\SpecialCharTok{{-}}\DecValTok{5}\NormalTok{], }\AttributeTok{by=}\FunctionTok{list}\NormalTok{(}\AttributeTok{Species=}\NormalTok{iris}\SpecialCharTok{$}\NormalTok{Species), }\AttributeTok{FUN=}\StringTok{"quantile"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      Species Sepal.Length.0% Sepal.Length.25% Sepal.Length.50% Sepal.Length.75%
+## 1     setosa           4.300            4.800            5.000            5.200
+## 2 versicolor           4.900            5.600            5.900            6.300
+## 3  virginica           4.900            6.225            6.500            6.900
+##   Sepal.Length.100% Sepal.Width.0% Sepal.Width.25% Sepal.Width.50%
+## 1             5.800          2.300           3.200           3.400
+## 2             7.000          2.000           2.525           2.800
+## 3             7.900          2.200           2.800           3.000
+##   Sepal.Width.75% Sepal.Width.100% Petal.Length.0% Petal.Length.25%
+## 1           3.675            4.400           1.000            1.400
+## 2           3.000            3.400           3.000            4.000
+## 3           3.175            3.800           4.500            5.100
+##   Petal.Length.50% Petal.Length.75% Petal.Length.100% Petal.Width.0%
+## 1            1.500            1.575             1.900            0.1
+## 2            4.350            4.600             5.100            1.0
+## 3            5.550            5.875             6.900            1.4
+##   Petal.Width.25% Petal.Width.50% Petal.Width.75% Petal.Width.100%
+## 1             0.2             0.2             0.3              0.6
+## 2             1.2             1.3             1.5              1.8
+## 3             1.8             2.0             2.3              2.5
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Base R’s \textasciigrave{}by()\textasciigrave{} function}
+\FunctionTok{by}\NormalTok{(}\AttributeTok{data=}\NormalTok{iris[,}\DecValTok{1}\SpecialCharTok{:}\DecValTok{4}\NormalTok{], }\AttributeTok{INDICES=}\NormalTok{iris}\SpecialCharTok{$}\NormalTok{Species, }\AttributeTok{FUN=}\NormalTok{summary)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## iris$Species: setosa
+##   Sepal.Length    Sepal.Width     Petal.Length    Petal.Width   
+##  Min.   :4.300   Min.   :2.300   Min.   :1.000   Min.   :0.100  
+##  1st Qu.:4.800   1st Qu.:3.200   1st Qu.:1.400   1st Qu.:0.200  
+##  Median :5.000   Median :3.400   Median :1.500   Median :0.200  
+##  Mean   :5.006   Mean   :3.428   Mean   :1.462   Mean   :0.246  
+##  3rd Qu.:5.200   3rd Qu.:3.675   3rd Qu.:1.575   3rd Qu.:0.300  
+##  Max.   :5.800   Max.   :4.400   Max.   :1.900   Max.   :0.600  
+## ------------------------------------------------------------ 
+## iris$Species: versicolor
+##   Sepal.Length    Sepal.Width     Petal.Length   Petal.Width   
+##  Min.   :4.900   Min.   :2.000   Min.   :3.00   Min.   :1.000  
+##  1st Qu.:5.600   1st Qu.:2.525   1st Qu.:4.00   1st Qu.:1.200  
+##  Median :5.900   Median :2.800   Median :4.35   Median :1.300  
+##  Mean   :5.936   Mean   :2.770   Mean   :4.26   Mean   :1.326  
+##  3rd Qu.:6.300   3rd Qu.:3.000   3rd Qu.:4.60   3rd Qu.:1.500  
+##  Max.   :7.000   Max.   :3.400   Max.   :5.10   Max.   :1.800  
+## ------------------------------------------------------------ 
+## iris$Species: virginica
+##   Sepal.Length    Sepal.Width     Petal.Length    Petal.Width   
+##  Min.   :4.900   Min.   :2.200   Min.   :4.500   Min.   :1.400  
+##  1st Qu.:6.225   1st Qu.:2.800   1st Qu.:5.100   1st Qu.:1.800  
+##  Median :6.500   Median :3.000   Median :5.550   Median :2.000  
+##  Mean   :6.588   Mean   :2.974   Mean   :5.552   Mean   :2.026  
+##  3rd Qu.:6.900   3rd Qu.:3.175   3rd Qu.:5.875   3rd Qu.:2.300  
+##  Max.   :7.900   Max.   :3.800   Max.   :6.900   Max.   :2.500
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Data Visualization \& Base R Plotting}
+
+\CommentTok{\# Print a plot to a pdf file}
+\FunctionTok{pdf}\NormalTok{(}\StringTok{"myplot.pdf"}\NormalTok{)}
+\FunctionTok{plot}\NormalTok{(}\FunctionTok{sin}\NormalTok{(}\FunctionTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{10}\NormalTok{, }\AttributeTok{by=}\FloatTok{0.1}\NormalTok{)), }\AttributeTok{type=}\StringTok{"l"}\NormalTok{) }\CommentTok{\#base R plot(), type "l" is a line drawing}
+\FunctionTok{dev.off}\NormalTok{() }\CommentTok{\#close the device}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## pdf 
+##   2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# ggplot2 Plotting}
+
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\FunctionTok{data}\NormalTok{(algae, }\AttributeTok{package=}\StringTok{"DMwR2"}\NormalTok{)}
+
+\CommentTok{\# Bar plot}
+\NormalTok{freqOcc }\OtherTok{\textless{}{-}} \FunctionTok{table}\NormalTok{(algae}\SpecialCharTok{$}\NormalTok{season)}
+\FunctionTok{barplot}\NormalTok{(freqOcc, }\AttributeTok{main=}\StringTok{"Frequency of the Seasons"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Exercise1_files/figure-latex/unnamed-chunk-4-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# ggplot bar plot}
+\FunctionTok{ggplot}\NormalTok{(algae, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{season)) }\SpecialCharTok{+}
+\FunctionTok{geom\_bar}\NormalTok{() }\SpecialCharTok{+}
+\FunctionTok{ggtitle}\NormalTok{(}\StringTok{"Frequency of the Seasons"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Exercise1_files/figure-latex/unnamed-chunk-4-2.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Center title}
+\FunctionTok{theme\_update}\NormalTok{(}\AttributeTok{plot.title =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{hjust=}\FloatTok{0.5}\NormalTok{))}
+
+\CommentTok{\# Color different bars}
+\FunctionTok{ggplot}\NormalTok{(algae, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{season, }\AttributeTok{color=}\NormalTok{season)) }\SpecialCharTok{+}
+\FunctionTok{geom\_bar}\NormalTok{() }\SpecialCharTok{+}
+\FunctionTok{ggtitle}\NormalTok{(}\StringTok{"Frequency of the Seasons"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Exercise1_files/figure-latex/unnamed-chunk-4-3.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Fill bars with color}
+\FunctionTok{ggplot}\NormalTok{(algae, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{season, }\AttributeTok{fill=}\NormalTok{season)) }\SpecialCharTok{+}
+\FunctionTok{geom\_bar}\NormalTok{() }\SpecialCharTok{+}
+\FunctionTok{ggtitle}\NormalTok{(}\StringTok{"Frequency of the Seasons"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Exercise1_files/figure-latex/unnamed-chunk-4-4.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Histograms and Boxplots}
+
+\CommentTok{\# Histogram in base R}
+\FunctionTok{hist}\NormalTok{(algae}\SpecialCharTok{$}\NormalTok{mxPH, }\AttributeTok{xlab =} \StringTok{"Maximal pH"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Exercise1_files/figure-latex/unnamed-chunk-5-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# ggplot2 histogram}
+\FunctionTok{ggplot}\NormalTok{(algae, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{mxPH)) }\SpecialCharTok{+}
+\FunctionTok{geom\_histogram}\NormalTok{() }\SpecialCharTok{+} \FunctionTok{xlab}\NormalTok{(}\StringTok{"Maximal pH"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+\end{verbatim}
+
+\includegraphics{Exercise1_files/figure-latex/unnamed-chunk-5-2.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Boxplot in base R}
+\FunctionTok{boxplot}\NormalTok{(algae}\SpecialCharTok{$}\NormalTok{mxPH, }\AttributeTok{ylab=}\StringTok{"Maximal pH"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Exercise1_files/figure-latex/unnamed-chunk-5-3.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# ggplot2 boxplot}
+\FunctionTok{ggplot}\NormalTok{(algae, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{y=}\NormalTok{mxPH)) }\SpecialCharTok{+}
+\FunctionTok{geom\_boxplot}\NormalTok{() }\SpecialCharTok{+} \FunctionTok{ylab}\NormalTok{(}\StringTok{"Maximal pH"}\NormalTok{) }\SpecialCharTok{+} \FunctionTok{theme}\NormalTok{(}\AttributeTok{axis.text.x =} \FunctionTok{element\_blank}\NormalTok{())}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Exercise1_files/figure-latex/unnamed-chunk-5-4.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Scatter Plots and Scatterplot Matrix}
+
+\CommentTok{\# Scatter plot in base R}
+\FunctionTok{plot}\NormalTok{(algae}\SpecialCharTok{$}\NormalTok{a1, algae}\SpecialCharTok{$}\NormalTok{a2, }\AttributeTok{main=}\StringTok{"Relationships btw a1 and a2"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Exercise1_files/figure-latex/unnamed-chunk-6-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# ggplot2 scatter plot}
+\FunctionTok{ggplot}\NormalTok{(algae, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{a1, }\AttributeTok{y=}\NormalTok{a2)) }\SpecialCharTok{+} 
+\FunctionTok{geom\_point}\NormalTok{() }\SpecialCharTok{+} 
+\FunctionTok{ggtitle}\NormalTok{(}\StringTok{"Relationship btw a1 and a2"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Exercise1_files/figure-latex/unnamed-chunk-6-2.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Scatterplot matrix}
+\FunctionTok{pairs}\NormalTok{(algae[, }\DecValTok{12}\SpecialCharTok{:}\DecValTok{16}\NormalTok{], }\AttributeTok{main =} \StringTok{"scatterplot"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Exercise1_files/figure-latex/unnamed-chunk-6-3.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# GGally scatterplot matrix}
+\FunctionTok{library}\NormalTok{(GGally)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Registered S3 method overwritten by 'GGally':
+##   method from   
+##   +.gg   ggplot2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggpairs}\NormalTok{(algae, }\AttributeTok{columns=}\DecValTok{1}\SpecialCharTok{:}\DecValTok{5}\NormalTok{, }\AttributeTok{bins =} \DecValTok{30}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+\end{verbatim}
+
+\begin{verbatim}
+## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+\end{verbatim}
+
+\includegraphics{Exercise1_files/figure-latex/unnamed-chunk-6-4.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#qqplot}
+
+\NormalTok{h }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FloatTok{3.5}\NormalTok{, }\FloatTok{2.6}\NormalTok{, }\FloatTok{4.0}\NormalTok{, }\FloatTok{3.2}\NormalTok{, }\FloatTok{4.5}\NormalTok{, }\FloatTok{3.3}\NormalTok{ ) }\CommentTok{\#height values}
+\NormalTok{w }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FloatTok{13.5}\NormalTok{, }\FloatTok{12.6}\NormalTok{, }\FloatTok{14.0}\NormalTok{, }\FloatTok{13.2}\NormalTok{, }\FloatTok{14.5}\NormalTok{, }\FloatTok{13.3}\NormalTok{ ) }\CommentTok{\#weight values}
+
+\FunctionTok{qqplot}\NormalTok{(h, w) }\CommentTok{\#h and w values are sorted, paired, and then plotted.}
+\FunctionTok{abline}\NormalTok{(}\FunctionTok{lsfit}\NormalTok{(h,w))}\CommentTok{\#fit a line using the least square}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Exercise1_files/figure-latex/unnamed-chunk-6-5.pdf}
+
+\end{document}

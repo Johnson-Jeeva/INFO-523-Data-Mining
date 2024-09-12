@@ -1,0 +1,197 @@
+---
+title: "INFO 523 Exercise"
+author: "KunaA Arekar/Naitik Shah"
+date: "2024-09-04"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+# Week 2: Getting to Know Your Data R Exercise
+
+**Goal**: Practice basic R commands/methods for descriptive data analysis.
+
+------------------------------------------------------------------------
+
+## Load Data
+
+```{r, warning=FALSE}
+
+
+
+# Load data
+data(algae, package="DMwR2")
+algae
+
+# Variance
+var(algae$a1)
+
+# Standard Deviation
+sd(algae$a1)
+
+# Range
+range(algae$a1)
+max(algae$a1)
+min(algae$a1)
+IQR(algae$a1)
+
+# Inter-quartile range
+quantile(algae$a1)
+quantile(algae$a1, probs=c(0.2, 0.8))
+
+# Find NAs
+nas <- apply(algae, 1, function(r) sum(is.na(r)))
+cat("The dataset contains ", sum(nas), "NA values. \n")
+
+cat("The dataset contains ", sum(!complete.cases(algae)), "(out of ", nrow(algae), ") incomplete rows. \n")
+
+summary(algae)
+```
+
+```{r, warning=FALSE}
+library(Hmisc)
+library(dplyr)
+library(tibble)
+library(ggplot2)
+
+data(iris)
+describe(iris)
+
+#Summaries on Subset of Data Using dplyr's summarise() and group_by()
+
+alg <- tibble::as_tibble(algae) # Convert to tibble
+identical(alg, algae) # Check if identical
+
+# Summarise with selected columns
+algae %>%
+   select(mxPH:Cl) %>%
+   summarise_all(list(mean = ~mean(.x, na.rm = TRUE), 
+                      median = ~median(.x, na.rm = TRUE)))
+
+# Summarise with group_by
+algae %>%
+  group_by(season, size) %>%
+  summarise(
+    nObs = n(),
+    mA7 = median(a7, na.rm = TRUE)
+  )
+
+# Summarise variance
+algae %>%
+  select(a1:a7) %>%
+  summarise_all(list(var = ~var(.x, na.rm = TRUE)))
+
+# Summarise min and max
+algae %>%
+  select(a1:a7) %>%
+  summarise_all(list(min = ~min(.x, na.rm = TRUE), 
+                     max = ~max(.x, na.rm = TRUE)))
+```
+
+```{r, warning=FALSE}
+#Aggregate Data
+
+data(iris)
+
+# Summarise variance by species
+iris %>%
+   group_by(Species) %>%
+   summarise(var_Sepal_Length = var(Sepal.Length, na.rm = TRUE))
+
+# Quantiles by species
+iris %>%
+   group_by(Species) %>%
+   summarise(quantiles = list(quantile(Sepal.Length)))
+
+# Base R’s `aggregate()`
+aggregate(x = list(Sepal.Length = iris$Sepal.Length), 
+          by = list(Species = iris$Species), 
+          FUN = quantile)
+
+# Aggregate on each of the first four columns in iris
+aggregate(x=iris[-5], by=list(Species=iris$Species), FUN="quantile")
+
+# Base R’s `by()` function
+by(data=iris[,1:4], INDICES=iris$Species, FUN=summary)
+```
+
+```{r, warning=FALSE}
+#Data Visualization & Base R Plotting
+
+# Print a plot to a pdf file
+pdf("myplot.pdf")
+plot(sin(seq(0, 10, by=0.1)), type="l") #base R plot(), type "l" is a line drawing
+dev.off() #close the device
+
+# ggplot2 Plotting
+
+library(ggplot2)
+data(algae, package="DMwR2")
+
+# Bar plot
+freqOcc <- table(algae$season)
+barplot(freqOcc, main="Frequency of the Seasons")
+
+# ggplot bar plot
+ggplot(algae, aes(x=season)) +
+geom_bar() +
+ggtitle("Frequency of the Seasons")
+
+# Center title
+theme_update(plot.title = element_text(hjust=0.5))
+
+# Color different bars
+ggplot(algae, aes(x=season, color=season)) +
+geom_bar() +
+ggtitle("Frequency of the Seasons")
+
+# Fill bars with color
+ggplot(algae, aes(x=season, fill=season)) +
+geom_bar() +
+ggtitle("Frequency of the Seasons")
+```
+
+```{r, warning=FALSE}
+#Histograms and Boxplots
+
+# Histogram in base R
+hist(algae$mxPH, xlab = "Maximal pH")
+
+# ggplot2 histogram
+ggplot(algae, aes(x=mxPH)) +
+geom_histogram() + xlab("Maximal pH")
+
+# Boxplot in base R
+boxplot(algae$mxPH, ylab="Maximal pH")
+
+# ggplot2 boxplot
+ggplot(algae, aes(y=mxPH)) +
+geom_boxplot() + ylab("Maximal pH") + theme(axis.text.x = element_blank())
+```
+
+```{r, warning=FALSE}
+#Scatter Plots and Scatterplot Matrix
+
+# Scatter plot in base R
+plot(algae$a1, algae$a2, main="Relationships btw a1 and a2")
+
+# ggplot2 scatter plot
+ggplot(algae, aes(x=a1, y=a2)) + 
+geom_point() + 
+ggtitle("Relationship btw a1 and a2")
+
+# Scatterplot matrix
+pairs(algae[, 12:16], main = "scatterplot")
+
+# GGally scatterplot matrix
+library(GGally)
+ggpairs(algae, columns=1:5, bins = 30)
+
+#qqplot
+
+h <- c(3.5, 2.6, 4.0, 3.2, 4.5, 3.3 ) #height values
+w <- c(13.5, 12.6, 14.0, 13.2, 14.5, 13.3 ) #weight values
+
+qqplot(h, w) #h and w values are sorted, paired, and then plotted.
+abline(lsfit(h,w))#fit a line using the least square
+```
